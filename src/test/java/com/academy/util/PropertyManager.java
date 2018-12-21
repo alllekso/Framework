@@ -17,7 +17,8 @@ public class PropertyManager {
 
     private static PropertyManager instance;
 
-    private PropertyManager() {}
+    private PropertyManager() {
+    }
 
     private static PropertyManager getInstance() {
         if (instance == null)
@@ -35,7 +36,7 @@ public class PropertyManager {
         String path = System.getProperty(name + ".cfg");
 
         try {
-            InputStream is= new FileInputStream(path);
+            InputStream is = new FileInputStream(path);
             properties.get(name).load(new InputStreamReader(is, "UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();

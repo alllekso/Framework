@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -57,9 +59,11 @@ public class AddressTests extends BaseTest {
 
     @DataProvider(name="creationAddress")
     private Object[] getCreationAddressData() {
+        AddressData addressData = (AddressData) ReaderExcel.readAddress();
         return new Object[]{
+                ReaderExcel.readAddress(),
                 new AddressData()
-                        .withFirstName("Kolya")
+                        .withFirstName("Name")
                         .withLastName("Ivanov")
                         .withAddress("Petrovskogo st. 35")
                         .withCity("Kharkov")
