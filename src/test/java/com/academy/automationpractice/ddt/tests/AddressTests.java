@@ -58,22 +58,14 @@ public class AddressTests extends BaseTest {
     }
 
     @DataProvider(name="creationAddress")
-    private Object[] getCreationAddressData() {
-        AddressData addressData = (AddressData) ReaderExcel.readAddress();
-        return new Object[]{
-                ReaderExcel.readAddress(),
-                new AddressData()
-                        .withFirstName("Name")
-                        .withLastName("Ivanov")
-                        .withAddress("Petrovskogo st. 35")
-                        .withCity("Kharkov")
-                        .withState("Alaska")
-                        .withZipCode("61033")
-                        .withCountry("United States")
-                        .withHomePhone("+3809353613437")
-                        .withMobilePhone("093234567")
-                        .withAddressAlias("addressAddedRef")
-        };
+    private Object[][] getCreationAddressData() {
+        List<AddressData> addressData = ReaderExcel.readAddress();
+        Object[][] testData = new Object[addressData.size()][1];
+
+        for (int i =0; i < addressData.size(); i++){
+            testData[i][0] = addressData.get(i);
+        }
+        return testData;
     }
     @AfterMethod
     public void logout(){
