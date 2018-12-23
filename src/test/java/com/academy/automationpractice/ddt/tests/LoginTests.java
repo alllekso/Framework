@@ -30,7 +30,7 @@ public class LoginTests extends BaseTest {
 
     @Test(dataProvider = "incorrectLoginProvider")
     // TODO
-//    @Ignore
+    @Ignore
     public void testAuthIncorrect(String email, String password, String errorMsgExpected) {
         System.out.println("Start 'testAuthIncorrect'");
         System.out.println(String.format("email: %s, password:%s, errorMsg:%s", email, password, errorMsgExpected));
@@ -41,7 +41,7 @@ public class LoginTests extends BaseTest {
         System.out.println("Complete 'testAuthIncorrect'");
     }
 
-    @DataProvider(name="authProvider")
+    @DataProvider(name = "authProvider")
     private Object[][] authProvider() {
         return new Object[][]{
                 {PropertyManager.from("automation").getProperty("username"), PropertyManager.from("automation").getProperty("automation.password"), "OLEG AFANASIEV"}
@@ -63,9 +63,9 @@ public class LoginTests extends BaseTest {
                 String password = row.getCell(1).getStringCellValue();
                 String errMsg = row.getCell(2).getStringCellValue();
 
-                data[r-1][0] = email;
-                data[r-1][1] = password;
-                data[r-1][2] = errMsg;
+                data[r - 1][0] = email;
+                data[r - 1][1] = password;
+                data[r - 1][2] = errMsg;
             }
 
             return data;
